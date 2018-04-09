@@ -63,3 +63,19 @@ hr{
 	height: 10px;
 	background: #0E1769;
 }
+#mostrar{	
+  text-align: center;
+}
+table{
+	padding: 10px;
+	margin:10px;
+	margin-left: auto;
+  	margin-right: auto;
+  	border: 2px solid #B1B1B5;
+}
+table tr td{
+	color:#070A99;
+}
+table tr th{
+	color: #000;
+}

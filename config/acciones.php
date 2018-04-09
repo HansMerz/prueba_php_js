@@ -1,5 +1,5 @@
 <?php
-include_once 'conexion.php';
+include("conexion.php");
 
 class Acciones{
     
@@ -15,11 +15,9 @@ class Acciones{
             $resul2->$con->prepare($sql2);
             $resul2->execute();
             $res = $resul2->fetch();
-            $this->id = $res[0];
-            return true;                      
+            $this->id = $res[0];            
     } catch (Exception $e) {
-      echo "<p>Error al insertar datos</p>";
-      return false;
+      echo "<p>Error al insertar datos</p>";      
     }
     }
     public function actualizar($id){

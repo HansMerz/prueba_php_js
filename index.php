@@ -15,7 +15,7 @@
 				$("#tel").show();							
 				fondo($("#register"));
 				$("#btn").attr("value", "Registrar");
-				alert($("h2"));
+				$("#titulo").text("Registro de persona");
 			});
 			$("#search").click(function(){				
 				$("#id").show();
@@ -23,6 +23,7 @@
 				$("#tel").hide();				
 				fondo($("#search"));
 				$("#btn").attr("value", "Buscar");
+				$("#titulo").text("Busqueda de persona");
 			});
 			$("#update").click(function(){				
 				$("#id").show();
@@ -30,13 +31,15 @@
 				$("#tel").show();													
 				fondo($("#update"));
 				$("#btn").attr("value", "Actualizar");	
+				$("#titulo").text("Actualización de persona");
 			});
 			$("#delete").click(function(){				
 				$("#id").show();
 				$("#nombre").hide();
 				$("#tel").hide();					
 				fondo($("#delete"));				
-				$("#btn").attr("value", "Eliminar");	
+				$("#btn").attr("value", "Eliminar");
+				$("#titulo").text("Eliminación de persona");	
 			});
 			$("#btn").click(function(){
 				if($("#nombre").val().length == 0){
@@ -78,6 +81,7 @@
 						} 
 					});
 				}
+				return false;
 			});
 
 		});
@@ -91,7 +95,7 @@
 	</script>
 </head>
 <body>
-	<h2 class="display-2">Registro de persona</h2>	
+	<h2 class="display-2" id="titulo">Registro de persona</h2>	
 	<hr>
     <div class="col" id="botones">
     	<button id="register" class="btnReg">Registrar</button>
