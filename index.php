@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>CRUD</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<link rel="stylesheet" href="../css/estilos.css">
+	<link rel="stylesheet" href="css/estilos.css">
 	<script src = "../js/jquery-3.2.1.min.js"></script>	
 	<script>
 		$(document).ready(function(e) {				
@@ -15,6 +15,7 @@
 				$("#tel").show();							
 				fondo($("#register"));
 				$("#btn").attr("value", "Registrar");
+				alert($("h2"));
 			});
 			$("#search").click(function(){				
 				$("#id").show();
@@ -65,7 +66,12 @@
 						data: $("#frmDatos").serialize(),
 						dataType: 'json', 
 						success: function(data){
-							
+							if(data.res == "si"){
+								alert(data.msj);
+								$("#mostrar").load(destino);
+							}else{
+								alert("Registro no guardado");
+							}
 						}, 
 						error: function(){
 							alert("Upppppps! Ocurrió un error");
