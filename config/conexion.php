@@ -1,6 +1,6 @@
 <?php
 
-class conexion{
+class conexion extends PDO{
     
     function __construct(){
         try {
