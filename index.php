@@ -10,7 +10,7 @@
 		$(document).ready(function(e) {				
 		fondo($("#register"));				
 			$("#register").click(function(){				
-				$("#id").hide();
+				
 				$("#nombre").show();
 				$("#tel").show();							
 				fondo($("#register"));
@@ -18,15 +18,15 @@
 				$("#titulo").text("Registro de persona");
 			});
 			$("#search").click(function(){				
-				$("#id").show();
-				$("#nombre").hide();
+				
+				$("#nombre").show();
 				$("#tel").hide();				
 				fondo($("#search"));
 				$("#btn").attr("value", "Buscar");
 				$("#titulo").text("Busqueda de persona");
 			});
 			$("#update").click(function(){				
-				$("#id").show();
+				
 				$("#nombre").show();
 				$("#tel").show();													
 				fondo($("#update"));
@@ -34,33 +34,42 @@
 				$("#titulo").text("Actualización de persona");
 			});
 			$("#delete").click(function(){				
-				$("#id").show();
-				$("#nombre").hide();
+				
+				$("#nombre").show();
 				$("#tel").hide();					
 				fondo($("#delete"));				
 				$("#btn").attr("value", "Eliminar");
 				$("#titulo").text("Eliminación de persona");	
 			});
-			$("#btn").click(function(){
-				if($("#nombre").val().length == 0){
-					alert("Ingresa el nombre por favor");
-				}else if($("#tel").val().length == 0){
-					alert("Ingresa el teléfono");
-				}else{
+			$("#btn").click(function(){				
 					var url = "";
 					var destino = ""; 
 					if($("#btn").val() == "Registrar"){
-						url = "insertar.php";
-						destino = "views/insertar.view.php";
+						if($("#nombre").val().length == 0){
+							alert("Ingresa el nombre por favor");
+						}else if($("#tel").val().length == 0){
+							alert("Ingresa el teléfono");
+						}else{
+							url = "insertar.php";
+							destino = "views/insertar.view.php";
+						}
 					}else if($("#btn").val() == "Actualizar"){
-						url = "actualizar.php";
+						url = "buscar.php";
 						destino = "views/actualizar.view.php";
 					}else if($("#btn").val() == "Buscar"){
-						url = "buscar.php";
-						destino = "views/buscar.view.php";
+						if($("#nombre").val().length == 0){
+							alert("Ingresa el ID para buscar");
+						}else{							
+							url = "buscar.php";
+							destino = "views/buscar.view.php";
+						}
 					}else if($("#btn").val() == "Eliminar"){
-						url = "eliminar.php";
-						destino = "views/eliminar.view.php";
+						if($("#btn").val().length == 0){
+							alert("Ingresa el ID para eliminar");
+						}else{
+							url = "eliminar.php";
+							destino = "views/eliminar.view.php";
+						}						
 					}
 
 					$.ajax({
@@ -79,8 +88,7 @@
 						error: function(){
 							alert("Upppppps! Ocurrió un error");
 						} 
-					});
-				}
+					});				
 				return false;
 			});
 
@@ -104,8 +112,7 @@
     	<button id="delete" class="btnEli">Eliminar</button>
     </div>
     <div class="container-fluid" id="form">
-        <form action="" method="post" id="frmDatos">
-        	<input type="text" name="id" id="id" placeholder="ID:" >
+        <form action="" method="post" id="frmDatos">        	
             <input type="text" name="nombre" id="nombre"  placeholder="Nombre:"/>
             <input type="number" name="tel" id="tel" placeholder="Teléfono"/>
             <input type="submit" class="btn btn-primary" name="btn" id="btn" value="Registrar"/>
