@@ -3,6 +3,7 @@ include_once "../config/config.php";
 include_once "../buscar.php";
 $sql = "SELECT * FROM datos WHERE nombre LIKE '%".$persona."%'";
 $sql2 = "SELECT * FROM datos";
+echo $persona;
 $rs = mysqli_query($link, $sql) or die("Error al intentar ejecutar la instrucción SQL ".mysql_error());
 $res = mysqli_query($link, $sql2) or die("Error al intentar ejecutar la instrucción SQL2 ".mysql_error());
 if($rs) {

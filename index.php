@@ -74,10 +74,11 @@
 
 					$.ajax({
 						url: url,
-						type: 'post',
+						type: 'POST',
 						data: $("#frmDatos").serialize(),
 						dataType: 'json', 
 						success: function(data){
+							console.log(data.nombre);
 							if(data.res == "si"){
 								alert(data.msj);
 								$("#mostrar").load(destino);
